@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerson Ltd – Strategic Product and Marketing Consulting</title>
+    <meta name="description" content="Gerson Ltd helps organisations grow through strategic product design, marketing clarity, and systems thinking—led by Steven and Vera Gerson." />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <style>
+        :root {
+            --primary-dark: #143e6f;
+            --primary: #225cc7;
+            --primary-light: #4d8dff;
+            --accent: #49b0ff;
+            --bg: #f6f8fc;
+            --text: #2a2a2a;
+            --card: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+            /* Prevents overlap with sticky nav */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6
+        }
+
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            background: white;
+            padding: 10px 20px 15px 20px;
+            border-bottom: 1px solid #e1e4ec;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+        }
+
+        .top-nav a.active {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .top-nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 28px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .top-nav a {
+            text-decoration: none;
+            color: var(--primary-dark);
+            transition: color 0.2s ease;
+        }
+
+        .top-nav a:hover {
+            color: var(--primary);
+        }
+
+        header {
+            background: linear-gradient(135deg, rgba(20, 62, 111, 0.96), rgba(34, 92, 199, 0.93));
+            color: #fff;
+            text-align: center;
+            padding: 50px 20px 40px;
+            clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%)
+        }
+
+        header h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            margin-bottom: 10px
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: .95
+        }
+
+        .container {
+            max-width: 1080px;
+            margin: 20px auto 0;
+            padding: 0 28px
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .07);
+            padding: 25px 35px 35px 35px;
+            margin-bottom: 35px
+        }
+
+        .card h2 {
+            color: var(--primary);
+            font-size: 1.9rem;
+            margin-bottom: 13px
+        }
+
+        ul {
+            padding-left: 22px
+        }
+
+        li {
+            margin-top: 14px
+        }
+
+        .testimonials li:not(:last-child) {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+            margin-bottom: 8px;
+        }
+
+        .pkg-box {
+            background: #eff5ff;
+            padding: 24px;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            border: 1px solid #e1ebff
+        }
+
+        .pkg-box:hover {
+          background: #ddd;
+        }
+
+        .pkg-title {
+            color: var(--primary-dark);
+            font-weight: 700;
+            font-size: 1.1rem
+        }
+
+        .pkg-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 32px
+        }
+
+        label {
+            display: block;
+            margin-top: 22px;
+            font-weight: 600
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 16px 18px;
+            margin-top: 8px;
+            border: 1px solid #c9d0da;
+            border-radius: 10px;
+            font-size: 1rem
+        }
+
+        select {
+            width: 100%;
+            padding: 16px 18px;
+            margin-top: 8px;
+            border: 1px solid #c9d0da;
+            border-radius: 10px;
+            font-size: 1em;
+            background: white;
+            color: #2a2a2a;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+
+        button {
+            margin-top: 30px;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 16px 36px;
+            border-radius: 10px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background .18s
+        }
+
+        button:hover {
+            background: var(--primary-light)
+        }
+
+        footer {
+            text-align: center;
+            padding: 48px 20px;
+            background: #fff;
+            border-top: 1px solid #e1e4ec;
+            font-size: .9rem;
+            color: #777
+        }
+
+        .social {
+            margin-top: 10px
+        }
+
+        .social a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-weight: 600
+        }
+
+        @media (max-width: 868px) {
+          /* Hide nav on mobile */
+          .top-nav {
+            display: none;
+          }
+        }
+
+        @media (max-width: 768px) {
+        /* Reduce padding */
+        .container {
+          padding: 0 10px;
+        }
+
+        /* Tighter header text */
+        header h1 {
+          font-size: 2rem;
+        }
+
+        header p {
+          font-size: 1rem;
+        }
+
+        /* Reduce card padding */
+        .card {
+          padding: 32px 20px;
+          margin-bottom: 32px;
+        }
+
+        /* Service / pricing boxes */
+        .pkg-box {
+          padding: 20px;
+          font-size: 0.95rem;
+        }
+
+        .pkg-title {
+          font-size: 1rem;
+        }
+
+        /* List spacing adjustments */
+        ul {
+          padding-left: 18px;
+        }
+
+        li {
+          margin-top: 10px;
+          font-size: 0.95rem;
+        }
+
+        /* Contact form adjustments */
+        input,
+        textarea,
+        select {
+          padding: 14px 16px;
+          font-size: 0.95rem;
+        }
+
+        button {
+          padding: 14px 28px;
+          font-size: 0.95rem;
+        }
+
+        /* Reduce spacing below hero CTA */
+        header a {
+          margin-top: 10px;
+          padding: 10px 20px;
+          font-size: 0.95rem;
+        }
+      }
+    </style>
+</head>
+
+<body>
+    <nav class="top-nav">
+        <ul>
+            <li><a href="#product" class="active">About Steven</a></li>
+            <li><a href="#services">Product Services</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#marketing">About Vera</a></li>
+            <li><a href="#marketingservices">Marketing Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Gerson Ltd</h1>
+        <p>Strategic Product Consulting & Systems Thinking<br>for Complex Challenges</p>
+
+        <a href="#contact"
+            style="background: #fff; color: var(--primary); display: inline-block; margin: 12px 0 3px 0; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: background 0.2s;">
+            Book a strategy session →
+        </a>
+
+
+    </header>
+
+    <div class="container">
+        <section class="card" id="product">
+            <h2>About Steven</h2>
+            <p>I help organisations bring direction to complex product challenges—turning ambition into clear strategy,
+                scalable systems, and focused delivery. With 14+ years across multiple sectors, I specialise in aligning
+                teams, simplifying complexity, and building momentum where it matters.</p>
+            <ul>
+                <li>Reframe messy challenges into focused roadmaps</li>
+                <li>Systems thinking, MVP shaping, human‑centred design</li>
+                <li>Trusted by engineers & executives for calm, structured decisions</li>
+                <li>Comfortable from vision through delivery alignment</li>
+            </ul>
+        </section>
+
+        <section class="card" id="services">
+            <h2>Product Services at a Glance</h2>
+            <p>I work with teams to untangle workflows, uncover leverage points, and design resilient product systems:
+            </p>
+            <ul>
+                <li>Strategic Product Design & MVP framing</li>
+                <li>AI‑driven workflow optimisation</li>
+                <li>Problem decomposition & systems thinking</li>
+                <li>Roadmapping, prioritisation & internal alignment</li>
+            </ul>
+            <br />
+            <div class="pkg-grid">
+                <div class="pkg-box" class="enquiry-link"
+                data-message="I'm interested in the 💡 Strategy Session – £500. I'd like to understand what's included and how soon we could schedule a session.">
+                    <div class="pkg-title">
+                        💡 Strategy Session – £500</div>
+                    <p>90‑minute call to unpack a challenge. Includes follow‑up insights & next steps.</p>
+                </div>
+                <div class="pkg-box" class="enquiry-link"
+                    data-message="I'm interested in the 🔍 Advisory Day – £1,200/day. I'd love to discuss where you could help us go deeper or unblock something strategically.">
+                    <div class="pkg-title">🔍 Advisory Day – £1,200/day</div>
+                    <p>Deep‑dives, roadmap reviews, or focused collaboration on strategy.</p>
+                </div>
+                <div class="pkg-box" class="enquiry-link"
+                    data-message="I'm interested in the 📈 Retainer option – £3k–£10k/month. Could we discuss what ongoing support might look like based on our current product challenges?">
+                    <div class="pkg-title">📈 Retainer – £3k–£10k/mo</div>
+                    <p>Strategic input, async reviews & regular calls (8–25 hrs/month).</p>
+                </div>
+                <div class="pkg-box" class="enquiry-link"
+                    data-message="I'm interested in the 🚀 Outcome Projects – £5k–£25k+. I'd love to explore whether a short, focused engagement could help us shape a roadmap or move faster.">
+                    <div class="pkg-title">🚀 Outcome Projects – £5k–£25k+</div>
+                    <p>Roadmap creation, MVP design, or platform strategy (4–8 weeks).</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Coaching & Mentoring</h2>
+            <p>Alongside my consulting work, I support individuals navigating product roles—whether they’re early in
+                their career, switching paths, or aiming for senior positions.</p>
+            <ul>
+                <li><strong>Product Career Coaching – £150/hr</strong><br>
+                    1:1 coaching to sharpen direction, confidence, or storytelling. Tailored to your experience and
+                    goals.
+                </li>
+                <li><strong>CV & Portfolio Review – £200</strong><br>
+                    In-depth review with feedback and positioning guidance to help you stand out in product and tech
+                    roles.
+                </li>
+                <li><strong>Interview Preparation – £150/hr</strong><br>
+                    Mock interviews and frameworks to help you perform with clarity and confidence in product
+                    interviews.
+                </li>
+            </ul>
+            <br />
+            <p>If you're building your product career, <strong>I'd love to support you.</strong></p>
+        </section>
+
+        <section class="card" id="testimonials">
+            <h2>What People Say</h2>
+            <ul class="testimonials" style="list-style: none; padding-left: 0;">
+                <li>
+                    <p>“Calm under pressure, highly collaborative, and consistently brought clarity where others might
+                        get stuck in the weeds.”</p>
+                    <strong>– Ernest N, Delivery Manager</strong>
+                </li>
+                <li>
+                    <p>“Steven is able to bring structure and clarity to ambiguous and complex problems.”</p>
+                    <strong>– Arthur L, CPO</strong>
+                </li>
+                <li>
+                    <p>“Steven brought a new and dynamic way of thinking... challenged convention, with the outcome of
+                        genuine business improvements. He demystified technology for the commercial team.”</p>
+                    <strong>– Mike G, CRO</strong>
+                </li>
+                <li>
+                    <p>“Steven thrives on complexity, solving difficult product problems and spotting the one issue
+                        everyone else misses.”</p>
+                    <strong>– Jayne S, Product Leader</strong>
+                </li>
+                <li>
+                    <p>“Steven was great at maintaining product direction while dealing with competing stakeholder
+                        needs.”</p>
+                    <strong>– Vaughan S, CTO & Co-founder</strong>
+                </li>
+                <li>
+                    <p>“Steven took the lead on complex domains with technical literacy, empathy, and rapport.”</p>
+                    <strong>– Axel S, Product Coach</strong>
+                </li>
+            </ul>
+            <p style="margin-top: 18px;">See more verified recommendations on <a
+                    href="https://www.linkedin.com/in/steven-gerson" target="_blank" rel="noopener">LinkedIn</a>.</p>
+        </section>
+
+        <section class="card" id="marketing">
+            <h2>About Vera</h2>
+            <p>I’m a senior marketing strategist with over 15 years of experience helping organisations grow through
+                clear positioning, customer insight, and effective go-to-market execution. My background spans higher
+                education, luxury real estate, and B2B tech—always with a focus on connecting the right message to the
+                right audience through the right channels.</p>
+            <ul>
+                <li>Brand and value proposition development</li>
+                <li>Go-to-market strategy and campaign execution</li>
+                <li>Paid search, social, and CRM channel planning</li>
+                <li>Customer segmentation and journey mapping</li>
+            </ul>
+            <br />
+            <p>I believe in practical strategy, crisp messaging, and creating systems that actually scale. Whether
+                refining your positioning or launching a new product, I help organisations bring clarity to how they
+                show up—and why it matters.</p>
+        </section>
+
+        <section class="card" id="marketingservices">
+            <h2>Marketing Services at a Glance</h2>
+            <p>Supporting product and commercial teams with marketing that aligns strategy and execution—bridging the
+                gap between customer insight, messaging, and channel performance. Offered by Vera Gerson, a senior
+                marketing strategist with experience across B2B, higher education, and premium real estate sectors.</p>
+            <br />
+
+            <div class="pkg-grid">
+                <div class="pkg-box" class="enquiry-link"
+                data-message="I'm interested in the 🎯 Marketing Strategy Session – £500. I’d like help clarifying our messaging, positioning, or go-to-market strategy.">
+                    <div class="pkg-title">
+                        🎯 Marketing Strategy Session – £500</div>
+                    <p>90-minute call to clarify positioning, brand messaging, or go-to-market plan. Includes follow-up
+                        summary and next-step recommendations.</p>
+                </div>
+
+                <div class="pkg-box" class="enquiry-link"
+                data-message="I'm interested in the 🔁 Brand & Messaging Sprint – £4,000+. I’d love to learn more about what’s included and how it could help us sharpen our story.">
+                    <div class="pkg-title">
+                        🔁 Brand & Messaging Sprint – £4,000+</div>
+                    <p>2–3 week deep dive into your brand narrative, audience segments, and positioning. Outcome: clear
+                        messaging and practical brand toolkit.</p>
+                </div>
+
+                <div class="pkg-box" class="enquiry-link"
+                data-message="I'm interested in the 📣 Campaign Execution Support – £1,200/day. We may need hands-on help with paid campaigns, CRM, or channel planning.">
+                    <div class="pkg-title">
+                        📣 Campaign Execution Support – £1,200/day</div>
+                    <p>Channel strategy and execution for paid search, social, or CRM campaigns. Includes creative
+                        guidance, media planning, and post-campaign review.</p>
+                </div>
+
+                <div class="pkg-box" class="enquiry-link"
+                data-message="I'm interested in the 🧩 Product + Marketing Alignment engagement – £6,000+. We’re launching something soon and would value joined-up input across product and marketing.">
+                    <div class="pkg-title">
+                        🧩 Product + Marketing Alignment – £6,000+</div>
+                    <p>Joint engagement across product and marketing—ideal for launches, pivots, or growth planning.
+                        Delivered with both Steven & Vera.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card" id="contact">
+            <h2>Let’s Work Together</h2>
+            <p>Whether you're looking for strategic consulting, product mentoring, or career support—We would love to
+                hear from you.</p>
+
+            <form method="POST" id="form">
+                <input type="hidden" name="access_key" value="4bd60e14-2a03-4ea3-9a7c-d8329ee5b4c7">
+
+                <label for="name">Your Name</label>
+                <input type="text" name="name" id="name" placeholder="Your Name" required />
+
+                <label for="email">Email Address</label>
+                <input type="email" name="email" id="email" placeholder="Email Address" required />
+
+                <label for="message">Message</label>
+                <textarea name="message" id="message" placeholder="Tell me a bit about what you need..." rows="5"
+                    required></textarea>
+
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+
+                <button type="submit">Send Enquiry</button>
+                <div id="result" style="margin-top: 16px; color: #225cc7;"></div>
+            </form>
+        </section>
+
+        <script>
+            // Process the User Form (Sends an Email)
+            const form = document.getElementById('form');
+            const result = document.getElementById('result');
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const formData = new FormData(form);
+                const object = Object.fromEntries(formData);
+                const json = JSON.stringify(object);
+                result.innerHTML = "Sending...";
+
+                fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: json
+                })
+                    .then(async (response) => {
+                        let json = await response.json();
+                        if (response.status === 200) {
+                            result.innerHTML = "✅ Form submitted successfully.";
+                        } else {
+                            result.innerHTML = `❌ ${json.message}`;
+                        }
+                    })
+                    .catch(error => {
+                        result.innerHTML = "❌ Something went wrong. Please try again.";
+                    })
+                    .then(() => {
+                        form.reset();
+                        setTimeout(() => {
+                            result.innerHTML = "";
+                        }, 4000);
+                    });
+            });
+        </script>
+    </div>
+
+    <footer>
+        &copy; 2025 Gerson Ltd. All rights reserved.<br>
+        <div class="social">Explore 40+ verified recommendations on <a href="https://www.linkedin.com/in/steven-gerson"
+                target="_blank" rel="noopener">LinkedIn</a> or get in touch above</div>
+    </footer>
+
+    <script>
+        // Pre-fill contact form when selecting an offering /package
+        document.querySelectorAll('.pkg-box[data-message]').forEach(box => {
+            box.style.cursor = 'pointer'; // makes it visually clickable
+            box.addEventListener('click', function (event) {
+                event.preventDefault();
+                const message = this.getAttribute('data-message');
+                const contactForm = document.getElementById('form');
+                const messageBox = document.getElementById('message');
+
+                // Fill message box
+                if (messageBox) {
+                    messageBox.value = message;
+                }
+
+                // Scroll to form
+                contactForm.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+
+    <script>
+        // Highlight active section in nav
+        const sections = document.querySelectorAll("section[id]");
+        const navLinks = document.querySelectorAll(".top-nav a");
+
+        function onScroll() {
+            let scrollY = window.scrollY + 100; // Adjust for nav height
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute("id");
+
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove("active");
+                        if (link.getAttribute("href") === "#" + sectionId) {
+                            link.classList.add("active");
+                        }
+                    });
+                }
+            });
+        }
+
+        window.addEventListener("scroll", onScroll);
+    </script>
+</body>
+
+</html>
