@@ -8,6 +8,10 @@
     <meta name="description" content="Gerson Ltd helps organisations grow through strategic product design, marketing clarity, and systems thinking—led by Steven and Vera Gerson." />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
     <style>
+        .v {
+          display: none;
+        }
+
         :root {
             --primary-dark: #143e6f;
             --primary: #225cc7;
@@ -292,8 +296,8 @@
             <li><a href="#product" class="active">About Steven</a></li>
             <li><a href="#services">Product Services</a></li>
             <li><a href="#testimonials">Testimonials</a></li>
-            <li><a href="#marketing">About Vera</a></li>
-            <li><a href="#marketingservices">Marketing Services</a></li>
+            <li class="v"><a href="#marketing">About Vera</a></li>
+            <li class="v"><a href="#marketingservices">Marketing Services</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -348,12 +352,12 @@
                     <p>Deep‑dives, roadmap reviews, or focused collaboration on strategy.</p>
                 </div>
                 <div class="pkg-box" class="enquiry-link"
-                    data-message="I'm interested in the 📈 Retainer option – £3k–£10k/month. Could we discuss what ongoing support might look like based on our current product challenges?">
+                    data-message="I'm interested in the 📈 Retainer option. Could we discuss what ongoing support might look like based on our current product challenges?">
                     <div class="pkg-title">📈 Retainer – £3k–£10k/mo</div>
                     <p>Strategic input, async reviews & regular calls (8–25 hrs/month).</p>
                 </div>
                 <div class="pkg-box" class="enquiry-link"
-                    data-message="I'm interested in the 🚀 Outcome Projects – £5k–£25k+. I'd love to explore whether a short, focused engagement could help us shape a roadmap or move faster.">
+                    data-message="I'm interested in the 🚀 Outcome Projects. I'd love to explore whether a short, focused engagement could help us shape a roadmap or move faster.">
                     <div class="pkg-title">🚀 Outcome Projects – £5k–£25k+</div>
                     <p>Roadmap creation, MVP design, or platform strategy (4–8 weeks).</p>
                 </div>
@@ -418,7 +422,7 @@
                     href="https://www.linkedin.com/in/steven-gerson" target="_blank" rel="noopener">LinkedIn</a>.</p>
         </section>
 
-        <section class="card" id="marketing">
+        <section class="card v" id="marketing">
             <h2>About Vera</h2>
             <p>I’m a senior marketing strategist with over 15 years of experience helping organisations grow through
                 clear positioning, customer insight, and effective go-to-market execution. My background spans higher
@@ -436,7 +440,7 @@
                 show up—and why it matters.</p>
         </section>
 
-        <section class="card" id="marketingservices">
+        <section class="card v" id="marketingservices">
             <h2>Marketing Services at a Glance</h2>
             <p>Supporting product and commercial teams with marketing that aligns strategy and execution—bridging the
                 gap between customer insight, messaging, and channel performance. Offered by Vera Gerson, a senior
